@@ -1,27 +1,56 @@
 import "./testimonials.scss"
 
 export default function Testimonials() {
+
+  const data = [
+    {
+      id: "1",
+      name: "Victor Villemin",
+      title: "CEO of Art Gallery",
+      img: "assets/victor.png",
+      icon: "assets/linkedin.png",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem voluptatum id natus ad necessitatibus, cum omnis aliquid sint culpa qui voluptates ipsum eius tenetur adipisci non rerum sunt exercitationem nisi!"
+    },
+    {
+      id: "2",
+      name: "Victor Villemin",
+      title: "CEO of Art Gallery",
+      img: "assets/victor.png",
+      icon: "assets/linkedin.png",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem voluptatum id natus ad necessitatibus, cum omnis aliquid sint culpa qui voluptates ipsum eius tenetur adipisci non rerum sunt exercitationem nisi!",
+      featured: true
+    },
+    {
+      id: "3",
+      name: "Victor Villemin",
+      title: "CEO of Art Gallery",
+      img: "assets/victor.png",
+      icon: "assets/linkedin.png",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem voluptatum id natus ad necessitatibus, cum omnis aliquid sint culpa qui voluptates ipsum eius tenetur adipisci non rerum sunt exercitationem nisi!"
+    },
+  ]
+
+
   return (
     <div className="testimonials" id="testimonials">
       <h1>Testimonials</h1>
       <div className="container">
-      <div className="card">
+        {data.map(d=>(
+      <div className={d.featured ? "card featured" : "card"}>
         <div className="top">
-          <img src="assets/arrow.png" className="left" alt="" />
-          <img src="assets/victor.png" className="userPicture" alt="" />
-          <img src="assets/linkedin.png" className="socialMedia" alt="" />
+          <img src="assets/arrow2.png" className="left" alt="" />
+          <img src={d.img} className="userPicture" alt="" />
+          <img src={d.icon} className="socialMedia" alt="" />
         </div>
         <div className="center">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Eveniet vel magni maxime provident cum.
-            Quo similique eius beatae, consectetur iure in maxime doloremque nulla,
-            ipsum dolorum mollitia omnis, quidem possimus?</p>
+          <p>{d.desc}</p>
         </div>
         <div className="bottom">
-          <h3>Victor Villemin</h3>
-          <h3>CEO of Art Gallery</h3>
+          <h3>{d.name}</h3>
+          <h4>{d.title}</h4>
         </div>
       </div>
+            ))}
       </div>
     </div>
   )
