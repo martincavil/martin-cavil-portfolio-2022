@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import './works.scss'
 
 export default function Works() {
 
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState([]);
 
   const data = [
     {
@@ -26,10 +27,12 @@ export default function Works() {
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, dolorum suscipit?",
       img: "https://cdn.dribbble.com/users/2064121/screenshots/15595531/media/0aa6f100d6dc369e5524f4aa14b7dcec.png?compress=1&resize=1200x900&vertical=top"
     }
-  ]
+  ];
 
   const handleClick = (way) => {
-    way === "left" ? setCurrentSlide(currentSlide > 0 currentSlide-1)
+    way === "left"
+      ? setCurrentSlide(currentSlide > 0 ? currentSlide-1 : 2)
+      : setCurrentSlide(currentSlide<data.length -1 ?currentSlide + 1 : 0) ;
   }
 
   return (
